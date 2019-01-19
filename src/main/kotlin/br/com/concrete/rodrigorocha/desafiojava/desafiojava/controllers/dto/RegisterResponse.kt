@@ -1,0 +1,11 @@
+package br.com.concrete.rodrigorocha.desafiojava.desafiojava.controllers.dto
+
+class RegisterResponse(
+    val id: Long,
+    val name: String,
+    val email: String,
+    val created: String,
+    val modified: String,
+    val last_login: String,
+    val token: String
+)
