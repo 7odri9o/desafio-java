@@ -1,7 +1,7 @@
 package br.com.concrete.rodrigorocha.desafiojava.desafiojava.controllers.dto
 
 class RegisterResponse(
-    val id: Long,
+    val id: Long? = null,
     val name: String,
     val email: String,
     val created: String,
