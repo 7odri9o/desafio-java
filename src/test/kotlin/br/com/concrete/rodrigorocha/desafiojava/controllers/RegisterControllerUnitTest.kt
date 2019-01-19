@@ -1,7 +1,7 @@
-package br.com.concrete.rodrigorocha.desafiojava.desafiojava.controllers
+package br.com.concrete.rodrigorocha.desafiojava.controllers
 
-import br.com.concrete.rodrigorocha.desafiojava.desafiojava.controllers.dto.PhoneRequest
-import br.com.concrete.rodrigorocha.desafiojava.desafiojava.controllers.dto.RegisterRequest
+import br.com.concrete.rodrigorocha.desafiojava.controllers.dto.PhoneRequest
+import br.com.concrete.rodrigorocha.desafiojava.controllers.dto.RegisterRequest
 import org.junit.Assert
 import org.junit.Test
 import org.junit.runner.RunWith
@@ -23,7 +23,7 @@ class RegisterControllerUnitTest {
             "michael.jackson@gmail.com",
             "1234",
             listOf(
-                PhoneRequest(1,"11", "12345678")
+                PhoneRequest("11", "12345678")
             )
         )
         val response = registerController!!.register(request)
@@ -37,7 +37,7 @@ class RegisterControllerUnitTest {
             "michael.jackson@gmail.com",
             "1234",
             listOf(
-                PhoneRequest(1,"11", "12345678")
+                PhoneRequest("11", "12345678")
             )
         )
         val response = registerController!!.register(request)
@@ -52,7 +52,7 @@ class RegisterControllerUnitTest {
             "michael.jackson@gmail.com",
             "1234",
             listOf(
-                PhoneRequest(1,"11", "12345678")
+                PhoneRequest("11", "12345678")
             )
         )
         val response = registerController!!.register(request)
@@ -67,7 +67,7 @@ class RegisterControllerUnitTest {
             "michael.jackson@gmail.com",
             "1234",
             listOf(
-                PhoneRequest(1,"11", "12345678")
+                PhoneRequest("11", "12345678")
             )
         )
         val response = registerController!!.register(request)
@@ -82,7 +82,7 @@ class RegisterControllerUnitTest {
             "michael.jackson@gmail.com",
             "1234",
             listOf(
-                PhoneRequest(1,"11", "12345678")
+                PhoneRequest("11", "12345678")
             )
         )
         val response = registerController!!.register(request)
@@ -97,7 +97,7 @@ class RegisterControllerUnitTest {
             "michael.jackson@gmail.com",
             "1234",
             listOf(
-                PhoneRequest(1,"11", "12345678")
+                PhoneRequest("11", "12345678")
             )
         )
         val response = registerController!!.register(request)
@@ -112,7 +112,7 @@ class RegisterControllerUnitTest {
             "michael.jackson@gmail.com",
             "1234",
             listOf(
-                PhoneRequest(1,"11", "12345678")
+                PhoneRequest("11", "12345678")
             )
         )
         val response = registerController!!.register(request)

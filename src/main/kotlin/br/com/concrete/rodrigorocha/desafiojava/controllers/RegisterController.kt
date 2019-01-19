@@ -1,9 +1,9 @@
-package br.com.concrete.rodrigorocha.desafiojava.desafiojava.controllers
+package br.com.concrete.rodrigorocha.desafiojava.controllers
 
-import br.com.concrete.rodrigorocha.desafiojava.desafiojava.controllers.dto.RegisterRequest
-import br.com.concrete.rodrigorocha.desafiojava.desafiojava.controllers.dto.RegisterResponse
-import br.com.concrete.rodrigorocha.desafiojava.desafiojava.converters.RegisterConverter
-import br.com.concrete.rodrigorocha.desafiojava.desafiojava.services.RegisterService
+import br.com.concrete.rodrigorocha.desafiojava.controllers.dto.RegisterRequest
+import br.com.concrete.rodrigorocha.desafiojava.controllers.dto.RegisterResponse
+import br.com.concrete.rodrigorocha.desafiojava.converters.RegisterConverter
+import br.com.concrete.rodrigorocha.desafiojava.services.RegisterService
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.http.HttpStatus
 import org.springframework.web.bind.annotation.PostMapping

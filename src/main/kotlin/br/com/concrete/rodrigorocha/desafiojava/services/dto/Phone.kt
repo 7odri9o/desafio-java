@@ -1,4 +1,4 @@
-package br.com.concrete.rodrigorocha.desafiojava.desafiojava.services.dto
+package br.com.concrete.rodrigorocha.desafiojava.services.dto
 
 import javax.persistence.Entity
 import javax.persistence.GeneratedValue

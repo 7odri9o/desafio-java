@@ -1,7 +1,7 @@
-package br.com.concrete.rodrigorocha.desafiojava.desafiojava.services
+package br.com.concrete.rodrigorocha.desafiojava.services
 
-import br.com.concrete.rodrigorocha.desafiojava.desafiojava.services.dto.Phone
-import br.com.concrete.rodrigorocha.desafiojava.desafiojava.services.dto.User
+import br.com.concrete.rodrigorocha.desafiojava.services.dto.Phone
+import br.com.concrete.rodrigorocha.desafiojava.services.dto.User
 import org.junit.Assert
 import org.junit.Test
 import org.junit.runner.RunWith
@@ -26,7 +26,7 @@ class RegisterServiceUnitTest {
             "michael.jackson@gmail.com",
             "1234",
             listOf(
-                Phone(1,"11", "12345678")
+                Phone(1, "11", "12345678")
             ),
             dataAtual,
             dataAtual,
@@ -49,7 +49,7 @@ class RegisterServiceUnitTest {
             "michael.jackson@gmail.com",
             "1234",
             listOf(
-                Phone(1,"11", "12345678")
+                Phone(1, "11", "12345678")
             ),
             dataAtual,
             dataAtual,
@@ -70,7 +70,7 @@ class RegisterServiceUnitTest {
             "michael.jackson@gmail.com",
             "1234",
             listOf(
-                Phone(1,"11", "12345678")
+                Phone(1, "11", "12345678")
             ),
             dataAtual,
             dataAtual,
@@ -91,7 +91,7 @@ class RegisterServiceUnitTest {
             "michael.jackson@gmail.com",
             "1234",
             listOf(
-                Phone(1,"11", "12345678")
+                Phone(1, "11", "12345678")
             ),
             dataAtual,
             dataAtual,
@@ -112,15 +112,13 @@ class RegisterServiceUnitTest {
             "michael.jackson@gmail.com",
             "1234",
             listOf(
-                Phone(1,"11", "12345678")
+                Phone(1, "11", "12345678")
             ),
             dataAtual,
             dataAtual,
             dataAtual,
             "TOKEN"
         )
-
-        val phones = listOf(Phone(1,"11", "12345678"))
 
         val userResult = registerService!!.register(userToInsert)
         Assert.assertEquals("11", userResult.phones[0].ddd)
@@ -135,15 +133,13 @@ class RegisterServiceUnitTest {
             "michael.jackson@gmail.com",
             "1234",
             listOf(
-                Phone(1,"11", "12345678")
+                Phone(1, "11", "12345678")
             ),
             dataAtual,
             dataAtual,
             dataAtual,
             "TOKEN"
         )
-
-        val phones = listOf(Phone(1,"11", "12345678"))
 
         val userResult = registerService!!.register(userToInsert)
         Assert.assertEquals("12345678", userResult.phones[0].number)

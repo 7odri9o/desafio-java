@@ -1,7 +1,7 @@
-package br.com.concrete.rodrigorocha.desafiojava.desafiojava.services
+package br.com.concrete.rodrigorocha.desafiojava.services
 
-import br.com.concrete.rodrigorocha.desafiojava.desafiojava.repositories.RegisterRepository
-import br.com.concrete.rodrigorocha.desafiojava.desafiojava.services.dto.User
+import br.com.concrete.rodrigorocha.desafiojava.repositories.RegisterRepository
+import br.com.concrete.rodrigorocha.desafiojava.services.dto.User
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Service
 import java.util.*

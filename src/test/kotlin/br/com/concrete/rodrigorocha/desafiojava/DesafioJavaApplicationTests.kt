@@ -1,4 +1,4 @@
-package br.com.concrete.rodrigorocha.desafiojava.desafiojava
+package br.com.concrete.rodrigorocha.desafiojava
 
 import org.junit.Test
 import org.junit.runner.RunWith

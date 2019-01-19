@@ -1,4 +1,4 @@
-package br.com.concrete.rodrigorocha.desafiojava.desafiojava.controllers.dto
+package br.com.concrete.rodrigorocha.desafiojava.controllers.dto
 
 class RegisterResponse(
     val id: Long? = null,

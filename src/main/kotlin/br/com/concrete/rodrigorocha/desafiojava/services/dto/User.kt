@@ -1,4 +1,4 @@
-package br.com.concrete.rodrigorocha.desafiojava.desafiojava.services.dto
+package br.com.concrete.rodrigorocha.desafiojava.services.dto
 
 import org.hibernate.annotations.Cascade
 import org.hibernate.annotations.CascadeType
