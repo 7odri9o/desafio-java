@@ -27,7 +27,7 @@ class RegisterControllerUnitTest {
             )
         )
         val response = registerController!!.register(request)
-        Assert.assertEquals(1, response.id)
+        Assert.assertNotNull(response.id)
     }
 
     @Test
