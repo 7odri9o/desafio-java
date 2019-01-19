@@ -13,7 +13,7 @@ class RegisterConverter {
 
     fun convertRegisterRequestToUser(registerRequest: RegisterRequest): User {
         val dataAtual = Date().toString()
-        return User(
+        val user = User(
             1,
             registerRequest.name,
             registerRequest.email,
@@ -22,12 +22,12 @@ class RegisterConverter {
             dataAtual,
             dataAtual,
             dataAtual,
-            "ID_TOKEN"
-        )
+            "ID_TOKEN")
+        return user
     }
 
     fun convertUserToRegisterResponse(user: User): RegisterResponse {
-        return RegisterResponse(
+        val response = RegisterResponse(
             user.id,
             user.name,
             user.email,
@@ -35,6 +35,7 @@ class RegisterConverter {
             user.modified,
             user.last_login,
             user.token)
+        return response
     }
 
     private fun convertPhoneRequestToPhone(phoneRequest: PhoneRequest): Phone {

@@ -3,6 +3,7 @@ package br.com.concrete.rodrigorocha.desafiojava.desafiojava.controllers
 import br.com.concrete.rodrigorocha.desafiojava.desafiojava.controllers.dto.RegisterRequest
 import br.com.concrete.rodrigorocha.desafiojava.desafiojava.controllers.dto.RegisterResponse
 import br.com.concrete.rodrigorocha.desafiojava.desafiojava.converters.RegisterConverter
+import br.com.concrete.rodrigorocha.desafiojava.desafiojava.services.RegisterService
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.http.HttpStatus
 import org.springframework.web.bind.annotation.PostMapping
@@ -12,6 +13,10 @@ import org.springframework.web.bind.annotation.RestController
 
 @RestController("/api/register")
 class RegisterController(
+
+    @Autowired
+    val registerService: RegisterService,
+
     @Autowired
     val registerConverter: RegisterConverter
 ) {
@@ -19,7 +24,8 @@ class RegisterController(
     @ResponseStatus(HttpStatus.CREATED)
     @PostMapping
     fun register(@RequestBody request: RegisterRequest): RegisterResponse {
-        val requestBody = registerConverter.convertRegisterRequestToUser(request)
-        return registerConverter.convertUserToRegisterResponse(requestBody)
+        val userToInsert = registerConverter.convertRegisterRequestToUser(request)
+        val insertedUser = registerService.register(userToInsert)
+        return registerConverter.convertUserToRegisterResponse(insertedUser)
     }
 }
