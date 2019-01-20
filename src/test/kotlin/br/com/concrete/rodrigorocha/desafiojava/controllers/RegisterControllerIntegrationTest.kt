@@ -47,7 +47,6 @@ class RegisterControllerIntegrationTest {
                     .accept(MediaType.APPLICATION_JSON)
                     .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isCreated)
-                .andReturn().response
     }
 
     @Test
@@ -66,7 +65,6 @@ class RegisterControllerIntegrationTest {
                     .accept(MediaType.APPLICATION_JSON)
                     .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isBadRequest)
-                .andReturn().response
     }
 
     @Test
@@ -85,7 +83,6 @@ class RegisterControllerIntegrationTest {
                     .accept(MediaType.APPLICATION_JSON)
                     .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isBadRequest)
-                .andReturn().response
     }
 
     @Test
@@ -104,7 +101,6 @@ class RegisterControllerIntegrationTest {
                     .accept(MediaType.APPLICATION_JSON)
                     .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isBadRequest)
-                .andReturn().response
     }
 
     @Test
@@ -123,7 +119,6 @@ class RegisterControllerIntegrationTest {
                     .accept(MediaType.APPLICATION_JSON)
                     .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isBadRequest)
-                .andReturn().response
     }
 
     @Test
@@ -142,6 +137,29 @@ class RegisterControllerIntegrationTest {
                     .accept(MediaType.APPLICATION_JSON)
                     .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isBadRequest)
-                .andReturn().response
+    }
+
+    @Test
+    fun `deve retornar status code 409 quando o email utilizado no cadastrado já foi cadastrado anteriormente`() {
+        val phonesRequest = listOf<PhoneRequest>(
+            PhoneRequest("11", "12345678"))
+
+        val bodyRequest = RegisterRequest(
+            "Michael Jackson",
+            "michael.jackson@gmail.com",
+            "1234",
+            phonesRequest)
+
+        mockMvc.perform(post("/api/register")
+            .content(mapper.writeValueAsBytes(bodyRequest))
+            .accept(MediaType.APPLICATION_JSON)
+            .contentType(MediaType.APPLICATION_JSON))
+            .andExpect(status().isCreated)
+
+        mockMvc.perform(post("/api/register")
+            .content(mapper.writeValueAsBytes(bodyRequest))
+            .accept(MediaType.APPLICATION_JSON)
+            .contentType(MediaType.APPLICATION_JSON))
+            .andExpect(status().isConflict)
     }
 }
