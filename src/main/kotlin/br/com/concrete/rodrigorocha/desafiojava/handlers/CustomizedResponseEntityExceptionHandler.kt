@@ -1,6 +1,7 @@
 package br.com.concrete.rodrigorocha.desafiojava.handlers
 
 import br.com.concrete.rodrigorocha.desafiojava.exceptions.BadRegisterRequestException
+import br.com.concrete.rodrigorocha.desafiojava.exceptions.EmailAlreadyExistsException
 import br.com.concrete.rodrigorocha.desafiojava.exceptions.ExceptionResponse
 import org.springframework.http.HttpStatus
 import org.springframework.http.ResponseEntity
@@ -24,5 +25,12 @@ class CustomizedResponseEntityExceptionHandler: ResponseEntityExceptionHandler()
         val exceptionResponse: ExceptionResponse =
             ExceptionResponse(ex.message)
         return ResponseEntity(exceptionResponse, HttpStatus.BAD_REQUEST)
+    }
+
+    @ExceptionHandler(EmailAlreadyExistsException::class)
+    fun handleBadRegisterRequest(ex: EmailAlreadyExistsException, request: WebRequest): ResponseEntity<ExceptionResponse> {
+        val exceptionResponse: ExceptionResponse =
+            ExceptionResponse(ex.message)
+        return ResponseEntity(exceptionResponse, HttpStatus.CONFLICT)
     }
 }
