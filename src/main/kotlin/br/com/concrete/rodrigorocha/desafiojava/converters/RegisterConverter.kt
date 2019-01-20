@@ -49,9 +49,9 @@ class RegisterConverter {
             user.id,
             user.name,
             user.email,
-            user.created,
-            user.modified,
-            user.last_login,
+            user.created.toString(),
+            user.modified.toString(),
+            user.last_login.toString(),
             user.token
         )
     }

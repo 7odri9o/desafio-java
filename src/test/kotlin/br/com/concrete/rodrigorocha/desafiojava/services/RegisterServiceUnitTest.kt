@@ -19,7 +19,7 @@ class RegisterServiceUnitTest {
 
     @Test
     fun `deve retornar um objeto contendo o campo id preenchido o 1`() {
-        val dataAtual = Date().toString()
+        val dataAtual = Date()
         val userToInsert = User(
             1,
             "Michael Jackson",
@@ -42,7 +42,7 @@ class RegisterServiceUnitTest {
 
     @Test
     fun `deve retornar um objeto contendo o campo name preenchido com Michael Jackson`() {
-        val dataAtual = Date().toString()
+        val dataAtual = Date()
         val userToInsert = User(
             1,
             "Michael Jackson",
@@ -63,7 +63,7 @@ class RegisterServiceUnitTest {
 
     @Test
     fun `deve retornar um objeto contendo o campo email preenchido com michaeljackson@gmailcom`() {
-        val dataAtual = Date().toString()
+        val dataAtual = Date()
         val userToInsert = User(
             1,
             "Michael Jackson",
@@ -84,7 +84,7 @@ class RegisterServiceUnitTest {
 
     @Test
     fun `deve retornar um objeto contendo o campo password preenchido com 1234`() {
-        val dataAtual = Date().toString()
+        val dataAtual = Date()
         val userToInsert = User(
             1,
             "Michael Jackson",
@@ -105,7 +105,7 @@ class RegisterServiceUnitTest {
 
     @Test
     fun `deve retornar um objeto contendo o campo phones que deve conter um objeto do tipo Phone com o ddd 11`() {
-        val dataAtual = Date().toString()
+        val dataAtual = Date()
         val userToInsert = User(
             1,
             "Michael Jackson",
@@ -126,7 +126,7 @@ class RegisterServiceUnitTest {
 
     @Test
     fun `deve retornar um objeto contendo o campo phones que deve conter um objeto do tipo Phone com o number 12345678`() {
-        val dataAtual = Date().toString()
+        val dataAtual = Date()
         val userToInsert = User(
             1,
             "Michael Jackson",

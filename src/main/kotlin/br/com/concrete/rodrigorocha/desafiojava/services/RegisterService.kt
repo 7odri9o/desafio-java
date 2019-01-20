@@ -20,7 +20,7 @@ class RegisterService {
             throw EmailAlreadyExistsException("E-mail já existente")
         }
 
-        val currentDate = Date().toString()
+        val currentDate = Date()
         user.created = currentDate
         user.modified = currentDate
         user.last_login = currentDate
