@@ -9,6 +9,7 @@ import org.junit.runner.RunWith
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.test.context.SpringBootTest
 import org.springframework.http.MediaType
+import org.springframework.test.annotation.DirtiesContext
 import org.springframework.test.context.junit4.SpringRunner
 import org.springframework.test.web.servlet.MockMvc
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post
@@ -17,6 +18,7 @@ import org.springframework.test.web.servlet.setup.MockMvcBuilders
 
 @RunWith(SpringRunner::class)
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
+@DirtiesContext(classMode = DirtiesContext.ClassMode.BEFORE_EACH_TEST_METHOD)
 class RegisterControllerIntegrationTest {
 
     @Autowired
@@ -43,10 +45,10 @@ class RegisterControllerIntegrationTest {
             phonesRequest)
 
         mockMvc.perform(post("/api/register")
-                    .content(mapper.writeValueAsBytes(bodyRequest))
-                    .accept(MediaType.APPLICATION_JSON)
-                    .contentType(MediaType.APPLICATION_JSON))
-                .andExpect(status().isCreated)
+            .content(mapper.writeValueAsBytes(bodyRequest))
+            .accept(MediaType.APPLICATION_JSON)
+            .contentType(MediaType.APPLICATION_JSON))
+            .andExpect(status().isCreated)
     }
 
     @Test
@@ -61,10 +63,10 @@ class RegisterControllerIntegrationTest {
             phonesRequest)
 
         mockMvc.perform(post("/api/register")
-                    .content(mapper.writeValueAsBytes(bodyRequest))
-                    .accept(MediaType.APPLICATION_JSON)
-                    .contentType(MediaType.APPLICATION_JSON))
-                .andExpect(status().isBadRequest)
+            .content(mapper.writeValueAsBytes(bodyRequest))
+            .accept(MediaType.APPLICATION_JSON)
+            .contentType(MediaType.APPLICATION_JSON))
+            .andExpect(status().isBadRequest)
     }
 
     @Test
@@ -79,10 +81,10 @@ class RegisterControllerIntegrationTest {
             phonesRequest)
 
         mockMvc.perform(post("/api/register")
-                    .content(mapper.writeValueAsBytes(bodyRequest))
-                    .accept(MediaType.APPLICATION_JSON)
-                    .contentType(MediaType.APPLICATION_JSON))
-                .andExpect(status().isBadRequest)
+            .content(mapper.writeValueAsBytes(bodyRequest))
+            .accept(MediaType.APPLICATION_JSON)
+            .contentType(MediaType.APPLICATION_JSON))
+            .andExpect(status().isBadRequest)
     }
 
     @Test
@@ -97,10 +99,10 @@ class RegisterControllerIntegrationTest {
             phonesRequest)
 
         mockMvc.perform(post("/api/register")
-                    .content(mapper.writeValueAsBytes(bodyRequest))
-                    .accept(MediaType.APPLICATION_JSON)
-                    .contentType(MediaType.APPLICATION_JSON))
-                .andExpect(status().isBadRequest)
+            .content(mapper.writeValueAsBytes(bodyRequest))
+            .accept(MediaType.APPLICATION_JSON)
+            .contentType(MediaType.APPLICATION_JSON))
+            .andExpect(status().isBadRequest)
     }
 
     @Test
@@ -115,10 +117,10 @@ class RegisterControllerIntegrationTest {
             phonesRequest)
 
         mockMvc.perform(post("/api/register")
-                    .content(mapper.writeValueAsBytes(bodyRequest))
-                    .accept(MediaType.APPLICATION_JSON)
-                    .contentType(MediaType.APPLICATION_JSON))
-                .andExpect(status().isBadRequest)
+            .content(mapper.writeValueAsBytes(bodyRequest))
+            .accept(MediaType.APPLICATION_JSON)
+            .contentType(MediaType.APPLICATION_JSON))
+            .andExpect(status().isBadRequest)
     }
 
     @Test
@@ -133,10 +135,10 @@ class RegisterControllerIntegrationTest {
             phonesRequest)
 
         mockMvc.perform(post("/api/register")
-                    .content(mapper.writeValueAsBytes(bodyRequest))
-                    .accept(MediaType.APPLICATION_JSON)
-                    .contentType(MediaType.APPLICATION_JSON))
-                .andExpect(status().isBadRequest)
+            .content(mapper.writeValueAsBytes(bodyRequest))
+            .accept(MediaType.APPLICATION_JSON)
+            .contentType(MediaType.APPLICATION_JSON))
+            .andExpect(status().isBadRequest)
     }
 
     @Test
