@@ -35,7 +35,7 @@ class RegisterControllerIntegrationTest {
 
     @Test
     fun `deve retornar status code 201 quando o cadastro tiver sido realizado com sucesso`() {
-        val phonesRequest = listOf<PhoneRequest>(
+        val phonesRequest = listOf(
             PhoneRequest("11", "12345678"))
 
         val bodyRequest = RegisterRequest(
@@ -53,7 +53,7 @@ class RegisterControllerIntegrationTest {
 
     @Test
     fun `deve retornar status code 400 quando o campo name estiver vazio`() {
-        val phonesRequest = listOf<PhoneRequest>(
+        val phonesRequest = listOf(
             PhoneRequest("11", "12345678"))
 
         val bodyRequest = RegisterRequest(
@@ -71,7 +71,7 @@ class RegisterControllerIntegrationTest {
 
     @Test
     fun `deve retornar status code 400 quando o campo email estiver vazio`() {
-        val phonesRequest = listOf<PhoneRequest>(
+        val phonesRequest = listOf(
             PhoneRequest("11", "12345678"))
 
         val bodyRequest = RegisterRequest(
@@ -89,7 +89,7 @@ class RegisterControllerIntegrationTest {
 
     @Test
     fun `deve retornar status code 400 quando o campo password estiver vazio`() {
-        val phonesRequest = listOf<PhoneRequest>(
+        val phonesRequest = listOf(
             PhoneRequest("11", "12345678"))
 
         val bodyRequest = RegisterRequest(
@@ -107,13 +107,13 @@ class RegisterControllerIntegrationTest {
 
     @Test
     fun `deve retornar status code 400 quando o campo ddd do telefone estiver vazio`() {
-        val phonesRequest = listOf<PhoneRequest>(
+        val phonesRequest = listOf(
             PhoneRequest("", "12345678"))
 
         val bodyRequest = RegisterRequest(
             "Michael Jackson",
             "michael.jackson@gmail.com",
-            "",
+            "1234",
             phonesRequest)
 
         mockMvc.perform(post("/api/register")
@@ -125,13 +125,31 @@ class RegisterControllerIntegrationTest {
 
     @Test
     fun `deve retornar status code 400 quando o campo number do telefone estiver vazio`() {
-        val phonesRequest = listOf<PhoneRequest>(
+        val phonesRequest = listOf(
             PhoneRequest("11", ""))
 
         val bodyRequest = RegisterRequest(
             "Michael Jackson",
             "michael.jackson@gmail.com",
-            "",
+            "1234",
+            phonesRequest)
+
+        mockMvc.perform(post("/api/register")
+            .content(mapper.writeValueAsBytes(bodyRequest))
+            .accept(MediaType.APPLICATION_JSON)
+            .contentType(MediaType.APPLICATION_JSON))
+            .andExpect(status().isBadRequest)
+    }
+
+    @Test
+    fun `deve retornar status code 400 quando o campo e-mail não estiver no formato de email`() {
+        val phonesRequest = listOf(
+            PhoneRequest("11", "12345678"))
+
+        val bodyRequest = RegisterRequest(
+            "Michael Jackson",
+            "m.@com",
+            "1234",
             phonesRequest)
 
         mockMvc.perform(post("/api/register")
@@ -143,7 +161,7 @@ class RegisterControllerIntegrationTest {
 
     @Test
     fun `deve retornar status code 409 quando o email utilizado no cadastrado já foi cadastrado anteriormente`() {
-        val phonesRequest = listOf<PhoneRequest>(
+        val phonesRequest = listOf(
             PhoneRequest("11", "12345678"))
 
         val bodyRequest = RegisterRequest(
