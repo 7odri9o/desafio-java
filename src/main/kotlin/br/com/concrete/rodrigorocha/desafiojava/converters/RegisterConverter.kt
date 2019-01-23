@@ -6,7 +6,6 @@ import br.com.concrete.rodrigorocha.desafiojava.controllers.dto.RegisterResponse
 import br.com.concrete.rodrigorocha.desafiojava.exceptions.BadRegisterRequestException
 import br.com.concrete.rodrigorocha.desafiojava.services.dto.Phone
 import br.com.concrete.rodrigorocha.desafiojava.services.dto.User
-import br.com.concrete.rodrigorocha.desafiojava.validators.EmailValidator
 import org.springframework.stereotype.Component
 
 @Component
@@ -30,12 +29,6 @@ class RegisterConverter {
             .filter { it.ddd.isEmpty() || it.number.isEmpty() }
         if (!invalidPhoneRequest.isEmpty()) {
             throw BadRegisterRequestException("Os campos DDD e Number dos telefones devem ser preenchidos")
-        }
-
-        val isValidEmail = EmailValidator.validateEmail(registerRequest.email)
-
-        if (!isValidEmail) {
-            throw BadRegisterRequestException("Formato de Email Inválido")
         }
 
         return User(

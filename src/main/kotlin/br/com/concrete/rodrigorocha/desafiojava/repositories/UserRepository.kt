@@ -5,7 +5,7 @@ import org.springframework.data.repository.CrudRepository
 import org.springframework.stereotype.Repository
 
 @Repository
-interface RegisterRepository: CrudRepository<User, Long> {
+interface UserRepository: CrudRepository<User, Long> {
 
     fun findUserByEmail(email: String): List<User>
 

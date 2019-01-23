@@ -1,7 +1,7 @@
 package br.com.concrete.rodrigorocha.desafiojava.services
 
 import br.com.concrete.rodrigorocha.desafiojava.exceptions.EmailAlreadyExistsException
-import br.com.concrete.rodrigorocha.desafiojava.repositories.RegisterRepository
+import br.com.concrete.rodrigorocha.desafiojava.repositories.UserRepository
 import br.com.concrete.rodrigorocha.desafiojava.services.dto.User
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Service
@@ -11,10 +11,10 @@ import java.util.*
 class RegisterService {
 
     @Autowired
-    lateinit var registerRepository: RegisterRepository
+    lateinit var userRepository: UserRepository
 
     fun register(user: User): User {
-        val existingUser: List<User> = registerRepository.findUserByEmail(user.email)
+        val existingUser: List<User> = userRepository.findUserByEmail(user.email)
 
         if (!existingUser.isEmpty()) {
             throw EmailAlreadyExistsException("E-mail já existente")
@@ -25,6 +25,6 @@ class RegisterService {
         user.modified = currentDate
         user.last_login = currentDate
         user.token = "TOKEN"
-        return registerRepository.save(user)
+        return userRepository.save(user)
     }
 }
